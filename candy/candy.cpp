@@ -55,6 +55,7 @@ public:
     }
     
     int findLongestDanDiaoSeq(int A[], int V[], int N, int i) {
+        /* 找出最长的单调序列（包含相等）*/ 
         int way = 0;
         int len = 1;
         for(;i < N;i++) {
@@ -81,6 +82,8 @@ public:
     }
     
     void doAdjust(int A[], int V[], int N, int start, int len) {
+        /* 永远从序列的最小rating端出发，向一个方向调整糖的数目
+         * 如果遇到已有非1的数，则该数不调整*/
         int end = start + len - 1;
         if(V[start] > V[end]) {
             for(int i=end;i>=start+1;i--) {
